@@ -1,0 +1,27 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+<div class="row">
+    <div class="col-md-4">
+        <h4>Go To:</h4>
+        <button id="btnContact" class="btn btn-default">Contact Page</button>
+    </div>
+    <div class="col-md-4">
+        <h4>Go To:</h4>
+        <button id="btnAbout" class="btn btn-default">About Page</button>
+    </div>
+</div>
+<script src="~/Scripts/HomeModule.js"></script>
+@section scripts
+{
+    <script language="javascript" type="text/javascript">
+        HomeModule.selectors.contactButton = '#btnContact';
+        HomeModule.selectors.aboutButton = '#btnAbout';
+        HomeModule.urls.contactUrl = '@Url.Action("Contact")';
+        HomeModule.urls.aboutUrl = '@Url.Action("About")';
+
+        $(document).ready(function () {
+            HomeModule.init();
+        });
+    </script>
+}
